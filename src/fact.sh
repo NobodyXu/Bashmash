@@ -6,7 +6,7 @@ if [ $# != 1 ] || ! [[ $1 =~ ^[0-9]+$ ]]; then
 fi
 
 if [ $1 == 0 ]; then
-	echo -n 1
+	echo -n "1"
 	exit
 fi
 
