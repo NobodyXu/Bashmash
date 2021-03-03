@@ -1,0 +1,2 @@
+# Bashmash
+Bash math utilities
