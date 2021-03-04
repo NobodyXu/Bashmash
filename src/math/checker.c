@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "include/checker.h"
 
 BOOL isInteger(const char* x) {
