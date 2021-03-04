@@ -10,4 +10,4 @@ if [ $1 == 0 ]; then
 	exit
 fi
 
-echo $(( $(seq -s "*" 1 $1) ))
+seq -s "*" 1 $1 | bc | tr -dc "0-9"
