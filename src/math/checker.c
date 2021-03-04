@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "checker.h"
+#include "include/checker.h"
 
 BOOL isInteger(const char* x) {
 	char character;
