@@ -8,7 +8,7 @@ const char* increment(const char* x, int length, int* shift) {
 	const char* px = x + i;
 	char* py = y + length;
 	
-	int j = 1;
+	int c = 1;
 	for (; i >= 0; i--) {
 		char character = *px + j;
 	
@@ -16,7 +16,7 @@ const char* increment(const char* x, int length, int* shift) {
 			*py = character;
 			
 			*shift = 1;
-			j = 0;
+			c = 0;
 			
 			px--;
 			py--;
