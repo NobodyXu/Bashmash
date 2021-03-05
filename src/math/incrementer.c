@@ -9,7 +9,16 @@ const char* increment(const char* x, int length, int* shift) {
 	char* py = y + length;
 	
 	int c = 1;
-	for (; i >= 0; i--) {
+	int s = 0;
+	
+	if (*x == '-') {
+		c = -1;
+		s = 1;
+		
+		py--;
+	}
+	
+	for (; i >= s; i--) {
 		char character = *px + c;
 	
 		if (character >= '0' && character <= '9') {
@@ -21,20 +30,51 @@ const char* increment(const char* x, int length, int* shift) {
 			px--;
 			py--;
 			
+			if (s) {
+				if (*(y + 1) == '0') {
+					if (length == 2)
+						return y + 1;
+						
+					*(y + 1) = '-';
+				} else
+					*y = '-';
+			}
+			
 			continue;
 		}
 		
-		*py = '0';
-		if (i == 0) {
-			*(py - 1) = '1';
-			*shift = 0;
+		*py = s ? '9' : '0';
+		if (i == s) {
+			if (s)
+				*(py - 1) = '-';
+			else
+				*(py - 1) = '1';
 			
+			*shift = 0;
 			return y;
 		}
 		
 		px--;
 		py--;
 	}
+
+	if (s && *(y + 1) != '-')
+		return y;
+	else
+		return y + 1;
+}
+
+int main(int argc, char** argv) {
+	if (argc != 2) {
+		printf("Usage: incrementer <number>");
+		return 0;
+	}
 	
-	return y + 1;
+	const char* x = argv[1];
+	int len = strlen(x);
+	
+	int shift;
+	
+	printf("%s\n", increment(x, len, &shift));
+	return 0;
 }
