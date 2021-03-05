@@ -10,7 +10,7 @@ const char* increment(const char* x, int length, int* shift) {
 	
 	int c = 1;
 	for (; i >= 0; i--) {
-		char character = *px + j;
+		char character = *px + c;
 	
 		if (character >= '0' && character <= '9') {
 			*py = character;
