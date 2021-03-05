@@ -1,4 +1,5 @@
 #include "include/incrementer.h"
+#include <stdlib.h>
 
 const char* increment(const char* x, int length, int* shift) {
 	char* y = (char*)malloc(length + 1);
@@ -7,17 +8,15 @@ const char* increment(const char* x, int length, int* shift) {
 	const char* px = x + i;
 	char* py = y + length;
 	
-	int carry = 1;
+	int j = 1;
 	for (; i >= 0; i--) {
-		char character = *px + carry;
+		char character = *px + j;
 	
 		if (character >= '0' && character <= '9') {
 			*py = character;
 			
-			if (carry) {
-				*shift = 1;
-				carry = 0;
-			}
+			*shift = 1;
+			j = 0;
 			
 			px--;
 			py--;
