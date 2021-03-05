@@ -1,4 +1,5 @@
 #include "include/copier.h"
+#include <stdlib.h>
 
 const char* copy(const char* x, int length) {
 	char* y = (char*)malloc(length);
@@ -13,5 +14,5 @@ const char* copy(const char* x, int length) {
 		dst++;
 	}
 	
-	return oldY;
+	return y;
 }
