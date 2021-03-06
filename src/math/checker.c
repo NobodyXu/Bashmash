@@ -2,6 +2,10 @@
 
 BOOL isInteger(const char* x) {
 	char character;
+	
+	if (*x == '-')
+		x++;
+	
 	for (; (character = *x) != '\0'; x++) {
 		if (character < '0' || character > '9')
 			return FALSE;
