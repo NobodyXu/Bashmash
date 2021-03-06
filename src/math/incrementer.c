@@ -14,8 +14,6 @@ const char* increment(const char* x, int length, int* shift) {
 	if (*x == '-') {
 		c = -1;
 		s = 1;
-		
-		py--;
 	}
 	
 	for (; i >= s; i--) {
@@ -23,22 +21,10 @@ const char* increment(const char* x, int length, int* shift) {
 	
 		if (character >= '0' && character <= '9') {
 			*py = character;
-			
-			*shift = 1;
 			c = 0;
 			
 			px--;
 			py--;
-			
-			if (s) {
-				if (*(y + 1) == '0') {
-					if (length == 2)
-						return y + 1;
-						
-					*(y + 1) = '-';
-				} else
-					*y = '-';
-			}
 			
 			continue;
 		}
@@ -50,16 +36,31 @@ const char* increment(const char* x, int length, int* shift) {
 			else
 				*(py - 1) = '1';
 			
-			*shift = 0;
-			return y;
+			*shift = 2;
+			return y + 2;
 		}
 		
 		px--;
 		py--;
 	}
+	
+	if (s) {
+		if (*(y + 2) == '0') {
+			if (length == 2)
+				return y + 2;
+					
+			*(y + 2) = '-';
+			*shift = 2;
+			
+			return y + 2;
+		} else {
+			*(y + 1) = '-';
+			*shift = 1;
+			
+			return y + 1;
+		}
+	}
 
-	if (s && *(y + 1) != '-')
-		return y;
-	else
-		return y + 1;
+	*shift = 1;
+	return y + 1;
 }
