@@ -2,15 +2,24 @@
 
 const char* cutLeadingZeroes(const char* x) {
 	char character;
+	int s = 0;
 	
 	if (*x == '-')
-		x++;
+		s = 1;
 	
-	const char* i;
-	for (i = x; (character = *i) != '\0'; i++) {
-		if (character != '0')
+	char* i;
+	for (i = (char*)x + s; (character = *i) != '\0'; i++) {
+		if (character != '0') {
+			if (s) {
+				char* y = i - 1;
+			
+				*y = '-';
+				return y;
+			}
+			
 			return i;
+		}
 	}
-	
-	return x;
+
+	return i - 1;
 }
