@@ -67,17 +67,3 @@ const char* increment(const char* x, int length, int* shift) {
 	*shift = 1;
 	return y + 1;
 }
-
-int main(int argc, char** argv) {
-	if (argc != 2) {
-		printf("Usage: incrementer <value>");
-		return 1;
-	}
-	
-	const char* x = argv[1];
-	int len = strlen(x);
-	int shift;
-	
-	printf("%s\n", increment(x, len, &shift));
-	return 0;
-}
