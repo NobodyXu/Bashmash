@@ -45,22 +45,39 @@ const char* increment(const char* x, int length, int* shift) {
 	}
 	
 	if (s) {
-		if (*(y + 2) == '0') {
+		char* oy = y + 2;
+		
+		if (*oy == '0') {
 			if (length == 2)
-				return y + 2;
+				return oy;
 					
-			*(y + 2) = '-';
+			*oy = '-';
 			*shift = 2;
 			
-			return y + 2;
+			return oy;
 		} else {
-			*(y + 1) = '-';
-			*shift = 1;
+			oy--;
+			*oy = '-';
 			
-			return y + 1;
+			*shift = 1;
+			return oy;
 		}
 	}
 
 	*shift = 1;
 	return y + 1;
+}
+
+int main(int argc, char** argv) {
+	if (argc != 2) {
+		printf("Usage: incrementer <value>");
+		return 1;
+	}
+	
+	const char* x = argv[1];
+	int len = strlen(x);
+	int shift;
+	
+	printf("%s\n", increment(x, len, &shift));
+	return 0;
 }
