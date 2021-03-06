@@ -31,13 +31,18 @@ const char* increment(const char* x, int length, int* shift) {
 		
 		*py = s ? '9' : '0';
 		if (i == s) {
-			if (s)
+			if (s) {
 				*(py - 1) = '-';
-			else
+				
+				*shift = 2;
+				return y + 2;
+			}
+			else {
 				*(py - 1) = '1';
 			
-			*shift = 2;
-			return y + 2;
+				*shift = 0;
+				return y;
+			}
 		}
 		
 		px--;
