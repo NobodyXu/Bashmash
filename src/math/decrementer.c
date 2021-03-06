@@ -1,18 +1,22 @@
 #include "include/decrementer.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
 const char* decrement(const char* x, int length, int* shift) {
-	char* y = (char*)malloc(length);
+	char* y = (char*)malloc(length + 1);
 	int i = length - 1;
 	
 	const char* px = x + i;
-	char* py = y + i;
+	char* py = y + length;
 	
 	int c = 1;
+	int s = 0;
 	
-	for (; i >= 0; i--) {
+	if (*x == '-') {
+		c = -1;
+		s = 1;
+	}
+	
+	for (; i >= s; i--) {
 		char character = *px - c;
 		
 		if (character >= '0' && character <= '9') {
@@ -25,31 +29,40 @@ const char* decrement(const char* x, int length, int* shift) {
 			continue;
 		}
 		
-		*py = '9';
+		*py = s ? '0' : '9';
+		if (i == s) {
+			if (s) {
+				*(py - 2) = '-';
+				*(py - 1) = '1';
+			
+				*shift = 0;
+				return y;
+			} else {
+				*(py - 1) = '-';
+				*py = '1';
+				
+				*shift = 0;
+				return y;
+			}
+		}
 		
 		px--;
 		py--;
 	}
 	
-	if (*y == '0' && length != 1) {
+	if (s) {
+		char* oy = y + 1;
+		*oy = '-';
+		
 		*shift = 1;
-		return y + 1;
+		return oy;
 	}
 	
-	*shift = 0;
-	return y;
-}
-
-int main(int argc, char** argv) {
-	if (argc != 2) {
-		printf("Usage: decrementer <value>\n");
-		return 1;
+	if (*(y + 1) == '0' && length != 1) {
+		*shift = 2;
+		return y + 2;
 	}
 	
-	const char* x = argv[1];
-	int len = strlen(x);
-	int shift;
-	
-	printf("%s\n", decrement(x, len, &shift));
-	return 0;
+	*shift = 1;
+	return y + 1;
 }
