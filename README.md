@@ -27,29 +27,21 @@ It introduces the following new features:
 ### Factorials
 ```bash
 fact <non_negative_integer>
-```
 
-#### Example
-```bash
+Example:
 fact 5
-```
 
-##### Output
-```
+Output:
 120
 ```
 
 ### Decimal to binary conversion
 ```bash
 dec2bin <non_negative_integer>
-```
 
-#### Example
-```bash
+Example:
 dec2bin 47
-```
 
-##### Output
-```
+Output:
 101111
 ```
