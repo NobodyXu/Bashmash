@@ -2,17 +2,17 @@
 Bash math utilities
 
 ## What is Bashmash?
-Bashmash is a set of math utilities for the Bash language.
+Bashmash is a set of math utilities for the Bash language.  
 It simplifies common mathematical operations, such as factorials.
 
 ## Features
-Bashmash supports operations on infinitely long numbers, regardless of the CPU architecture.
+Bashmash supports operations on infinitely long numbers, regardless of the CPU architecture.  
 Currently the following mathematical operations are supported:
  - Factorials
  - Decimal to binary conversion (currently only numbers from 0 to 4095 are supported)
 
 ## Latest version
-The latest test version is 0.1.
+The latest test version is 0.1.  
 It introduces the following new features:
  - Factorials
 
