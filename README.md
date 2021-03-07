@@ -9,13 +9,12 @@ It simplifies common mathematical operations, such as factorials.
 Bashmash supports operations on infinitely long numbers, regardless of the CPU architecture.
 Currently the following mathematical operations are supported:
  - Factorials
- - Decimal to Binary converter
+ - Decimal to binary conversion (currently only numbers from 0 to 4095 are supported)
 
 ## Latest version
 The latest test version is 0.1.
 It introduces the following new features:
  - Factorials
- - Decimal to Binary converter
 
 ## Installation
 1. Clone this repository: `git clone https://github.com/HubertPastyrzak/Bashmash`.
@@ -40,7 +39,7 @@ fact 5
 120
 ```
 
-### Decimal to binary converter
+### Decimal to binary conversion
 ```bash
 dec2bin <non_negative_integer>
 ```
