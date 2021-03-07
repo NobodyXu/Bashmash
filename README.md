@@ -15,6 +15,7 @@ Currently the following mathematical operations are supported:
 The latest test version is 0.1.
 It introduces the following new features:
  - Factorials
+ - Decimal to Binary converter
 
 ## Installation
 1. Clone this repository: `git clone https://github.com/HubertPastyrzak/Bashmash`.
