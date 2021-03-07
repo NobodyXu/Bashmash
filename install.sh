@@ -3,8 +3,8 @@
 name="Bashmash"
 version="0.1"
 
-scriptSources=("src/fact.sh")
-scriptDestinations=("/bin/fact")
+scriptSources=("src/fact.sh", "src/dec2bin.sh")
+scriptDestinations=("/bin/fact", "/bin/dec2bin")
 
 scripts=${#scriptSources[@]}
 echo "Installing $name $version..."
