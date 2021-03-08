@@ -6,9 +6,11 @@ Bashmash is a set of math utilities for the Bash language.
 It simplifies common mathematical operations, such as factorials.
 
 ## Features
+As for now, Bashmash supports only 64-bit numbers.  
+Support for infinitely long numbers will be implemented in future releases.  
 Currently the following mathematical operations are supported:
- - Factorials (for now only 64-bit numbers are supported)
- - Decimal to binary conversion (for now only 12-bit numbers are supported)
+ - Factorials
+ - Decimal to binary conversion
 
 ## Latest release
 The latest test release is 0.1.  
