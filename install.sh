@@ -3,17 +3,20 @@
 name="Bashmash"
 version="0.2"
 
-cppSources=("src/fact.cpp" "src/dec2bin.cpp")
-cppDestinations=("/bin/fact" "/bin/dec2bin")
+cppSources=("src/fact.cpp" "src/dec2bin.cpp" "src/bin2dec.cpp")
+cppDestinations=("/bin/fact" "/bin/dec2bin" "/bin/bin2dec")
 
+cppLibraries=("src/NonNegativeInteger.cpp" "src/NonNegativeInteger.cpp" "src/NonNegativeBinaryInteger.cpp")
 cppFiles=${#cppSources[@]}
 
 for (( i = 0; i < $cppFiles; i++ )); do
 	source="${cppSources[$i]}"
 	destination="${cppDestinations[$i]}"
 	
+	library="${cppLibraries[$i]}"
+	
 	echo -n "$source..."
-	g++ "$source" "src/NonNegativeInteger.cpp" "-Isrc" -o "$destination"
+	g++ "$source" "$library" "-Isrc" -o "$destination"
 	
 	if [ $? == 0 ]; then
 		chmod +x "$destination"
