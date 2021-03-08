@@ -19,6 +19,7 @@ It introduces the following new features:
 ### Requirements
  - G++: `sudo apt install g++`
 
+### Steps
 1. Clone this repository: `git clone https://github.com/HubertPastyrzak/Bashmash`.
 2. Go to the downloaded folder: `cd Bashmash`.
 3. Assign execution permissions to the installer: `chmod +x install.sh`.
