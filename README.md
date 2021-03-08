@@ -6,20 +6,22 @@ Bashmash is a set of math utilities for the Bash language.
 It simplifies common mathematical operations, such as factorials.
 
 ## Features
-Bashmash supports operations on infinitely long numbers, regardless of the CPU architecture.  
 Currently the following mathematical operations are supported:
- - Factorials
- - Decimal to binary conversion (currently only numbers from 0 to 4095 are supported)
+ - Factorials (for now only 64-bit numbers are supported)
+ - Decimal to binary conversion (for now only 12-bit numbers are supported)
 
-## Latest version
-The latest test version is 0.1.  
+## Latest release
+The latest test release is 0.1.  
 It introduces the following new features:
  - Factorials
 
 ## Installation
+### Requirements
+ - G++: `sudo apt install g++`
+
 1. Clone this repository: `git clone https://github.com/HubertPastyrzak/Bashmash`.
 2. Go to the downloaded folder: `cd Bashmash`.
-3. Assign execution permissions to the installer: `sudo chmod +x install.sh`.
+3. Assign execution permissions to the installer: `chmod +x install.sh`.
 4. Run the installer: `sudo ./install.sh`.
 5. Bashmash is now ready to use. :)
 
