@@ -11,6 +11,7 @@ Support for infinitely long numbers will be implemented in future releases.
 Currently the following mathematical operations are supported:
  - Factorials
  - Decimal to binary conversion
+ - Binary to decimal conversion
 
 ## Latest release
 The latest test release is 0.1.  
@@ -49,4 +50,15 @@ dec2bin 47
 
 Output:
 101111
+```
+
+### Binary to decimal conversion
+```bash
+bin2dec <non_negative_binary_integer>
+
+Example:
+bin2dec 101111
+
+Output:
+47
 ```
