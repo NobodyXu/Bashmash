@@ -10,8 +10,9 @@ As for now, Bashmash supports only 64-bit numbers.
 Support for infinitely long numbers will be implemented in future releases.  
 Currently the following mathematical operations are supported:
  - Factorials
- - Decimal to binary conversion
  - Binary to decimal conversion
+ - Decimal to binary conversion
+ - Decimal to octal conversion
 
 ## Latest release
 The latest test release is 0.1.  
@@ -41,6 +42,17 @@ Output:
 120
 ```
 
+### Binary to decimal conversion
+```bash
+bin2dec <non_negative_binary_integer>
+
+Example:
+bin2dec 101111
+
+Output:
+47
+```
+
 ### Decimal to binary conversion
 ```bash
 dec2bin <non_negative_integer>
@@ -52,13 +64,13 @@ Output:
 101111
 ```
 
-### Binary to decimal conversion
+### Decimal to octal conversion
 ```bash
-bin2dec <non_negative_binary_integer>
+dec2oct <non_negative_integer>
 
 Example:
-bin2dec 101111
+dec2oct 47
 
 Output:
-47
+57
 ```
