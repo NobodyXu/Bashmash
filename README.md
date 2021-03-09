@@ -20,6 +20,7 @@ Currently the following mathematical operations are supported:
  - Decimal to octal conversion
  - Decimal to hexadecimal conversion
  - Hexadecimal to binary conversion
+ - Hexadecimal to octal conversion
 
 ## Latest release
 The latest test release is 0.1.  
@@ -157,4 +158,15 @@ hex2bin 2f
 
 Output:
 101111
+```
+
+### Hexadecimal to octal conversion
+```bash
+hex2oct <non_negative_hexadecimal_integer>
+
+Example:
+hex2oct 2f
+
+Output:
+57
 ```
