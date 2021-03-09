@@ -12,6 +12,11 @@ NonNegativeInteger::NonNegativeInteger(string x) {
 	fieldCount = 1;
 	fields = new unsigned long long[1];
 	
+	if (!isNonNegativeInteger(x)) {
+		valid = false;
+		return;
+	}
+	
 	try {
 		fields[0] = stoull(x);
 	} catch (exception& e) {
@@ -28,6 +33,17 @@ unsigned long long NonNegativeInteger::toUnsignedLongLong() {
 
 string NonNegativeInteger::toString() {
 	return to_string(fields[0]);
+}
+
+bool NonNegativeInteger::isNonNegativeInteger(string x) {
+	int length = x.length();
+	for (int i = 0; i < length; i++) {
+		char character = x.at(i);
+		if (character < '0' || character > '9')
+			return false;
+	}
+	
+	return true;
 }
 
 bool NonNegativeInteger::isValid() {

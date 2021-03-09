@@ -10,12 +10,15 @@ private:
 	unsigned long long fieldCount;
 	unsigned long long* fields;
 	
+	bool isNonNegativeInteger(string x);
+	
 public:
 	NonNegativeInteger(unsigned long long x);
 	NonNegativeInteger(string x);
 	
 	unsigned long long toUnsignedLongLong();
 	string toString();
+	
 	
 	bool isValid();
 	
