@@ -18,6 +18,7 @@ Currently the following mathematical operations are supported:
  - Octal to hexadecimal conversion
  - Decimal to binary conversion
  - Decimal to octal conversion
+ - Decimal to hexadecimal conversion
 
 ## Latest release
 The latest test release is 0.1.  
@@ -133,4 +134,15 @@ dec2oct 47
 
 Output:
 57
+```
+
+### Decimal to hexadecimal conversion
+```bash
+dec2hex <non_negative_integer>
+
+Example:
+dec2hex 47
+
+Output:
+2f
 ```
