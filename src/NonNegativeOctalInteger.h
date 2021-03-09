@@ -17,4 +17,5 @@ public:
 	unsigned long long toUnsignedLongLong();
 	
 	bool isValid();
-}
+	bool equalTo(unsigned long long x);
+};

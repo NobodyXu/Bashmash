@@ -38,3 +38,7 @@ bool NonNegativeOctalInteger::isNonNegativeOctalInteger(string x) {
 bool NonNegativeOctalInteger::isValid() {
 	return valid;
 }
+
+bool NonNegativeOctalInteger::equalTo(unsigned long long x) {
+	return fields[0] == x;
+}
