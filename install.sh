@@ -3,10 +3,10 @@
 name="Bashmash"
 version="0.2"
 
-cppSources=("src/fact.cpp" "src/bin2oct.cpp" "src/bin2dec.cpp" "src/oct2bin.cpp" "src/dec2bin.cpp" "src/dec2oct.cpp")
-cppDestinations=("/bin/fact" "/bin/bin2oct" "/bin/bin2dec" "/bin/oct2bin" "/bin/dec2bin" "/bin/dec2oct")
+cppSources=("src/fact.cpp" "src/bin2oct.cpp" "src/bin2dec.cpp" "src/oct2bin.cpp" "src/oct2dec.cpp" "src/dec2bin.cpp" "src/dec2oct.cpp")
+cppDestinations=("/bin/fact" "/bin/bin2oct" "/bin/bin2dec" "/bin/oct2bin" "/bin/oct2dec" "/bin/dec2bin" "/bin/dec2oct")
 
-cppLibraries=("src/NonNegativeInteger.cpp" "src/NonNegativeBinaryInteger.cpp" "src/NonNegativeBinaryInteger.cpp" "src/NonNegativeOctalInteger.cpp" "src/NonNegativeInteger.cpp" "src/NonNegativeInteger.cpp")
+cppLibraries=("src/NonNegativeInteger.cpp" "src/NonNegativeBinaryInteger.cpp" "src/NonNegativeBinaryInteger.cpp" "src/NonNegativeOctalInteger.cpp" "src/NonNegativeOctalInteger.cpp" "src/NonNegativeInteger.cpp" "src/NonNegativeInteger.cpp")
 cppFiles=${#cppSources[@]}
 
 echo "Installing $name $version..."
