@@ -15,6 +15,7 @@ Currently the following mathematical operations are supported:
  - Binary to hexadecimal conversion
  - Octal to binary conversion
  - Octal to decimal conversion
+ - Octal to hexadecimal conversion
  - Decimal to binary conversion
  - Decimal to octal conversion
 
@@ -99,6 +100,17 @@ oct2dec 57
 
 Output:
 47
+```
+
+### Octal to hexadecimal conversion
+```bash
+oct2hex <non_negative_octal_integer>
+
+Example:
+oct2hex 57
+
+Output:
+2f
 ```
 
 ### Decimal to binary conversion
