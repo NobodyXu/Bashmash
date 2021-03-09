@@ -7,10 +7,7 @@ void printUsage() {
 	cout << "Usage: dec2oct <non_negative_integer>" << endl;
 }
 
-string dec2oct(NonNegativeInteger* x) {
-	if (x->equalTo(0))
-		return "0";
-		
+string dec2oct(NonNegativeInteger* x) {	
 	ostringstream y;
 	y << oct << x->toUnsignedLongLong();
 	
