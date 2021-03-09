@@ -12,6 +12,7 @@ Currently the following mathematical operations are supported:
  - Factorials
  - Binary to octal conversion
  - Binary to decimal conversion
+ - Octal to binary conversion
  - Decimal to binary conversion
  - Decimal to octal conversion
 
@@ -63,6 +64,17 @@ bin2dec 101111
 
 Output:
 47
+```
+
+### Octal to binary conversion
+```bash
+oct2bin <non_negative_octal_integer>
+
+Example:
+oct2bin 57
+
+Output:
+101111
 ```
 
 ### Decimal to binary conversion
