@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ $EUID != 0 ]; then
+	echo "You must run the installer as root."
+	exit
+fi
+
 name="Bashmash"
 version="0.2"
 
@@ -35,8 +40,8 @@ for (( i = 0; i < $cppFiles; i++ )); do
 done
 
 if [ "$error" == "true" ]; then
-	echo "Errors have occurred while installing $name $version."
-	echo "Make sure that you've installed G++ and that you're installing as root."
+	echo "$name $version installation has failed."
+	echo "Make sure that you have installed G++."
 	
 	exit
 fi
