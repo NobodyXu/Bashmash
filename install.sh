@@ -36,23 +36,16 @@ for (( i = 0; i < $cppFiles; i++ )); do
 	g++ "$source" "$library" "-Isrc" -o "$destination"
 	
 	if [ $? != 0 ]; then
-		error="true"
-		continue
+		echo "An error has occurred while installing $name $version."
+		echo "Please fix the above errors before you proceed with installation."
+		
+		exit
 	fi
 	
+	chmod +x "$destination"
 	if [ $? == 0 ]; then
-		chmod +x "$destination"
-		if [ $? == 0 ]; then
-			echo "Done"
-		fi
+		echo "Done"
 	fi
 done
-
-if [ "$error" == "true" ]; then
-	echo "Errors have occurred while installing $name $version."
-	echo "Make sure that none of the source files are missing or corrupted."
-	
-	exit
-fi
 
 echo "$name $version has been successfully installed."
