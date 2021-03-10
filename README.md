@@ -9,24 +9,13 @@ It simplifies common mathematical operations, such as factorials.
 As for now, Bashmash supports only 64-bit numbers.  
 Support for infinitely long numbers will be implemented in future releases.  
 Currently the following mathematical operations are supported:
- - Factorials
- - Binary to octal conversion
- - Binary to decimal conversion
- - Binary to hexadecimal conversion
- - Octal to binary conversion
- - Octal to decimal conversion
- - Octal to hexadecimal conversion
- - Decimal to binary conversion
- - Decimal to octal conversion
- - Decimal to hexadecimal conversion
- - Hexadecimal to binary conversion
- - Hexadecimal to octal conversion
- - Hexadecimal to decimal conversion
+ - Factorial
+ - Conversion between binary, octal, decimal and hexadecimal
 
 ## Latest release
 The latest test release is 0.1.  
 It introduces the following new features:
- - Factorials
+ - Factorial
 
 ## Installation
 ### Requirements
