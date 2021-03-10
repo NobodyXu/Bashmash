@@ -1,12 +1,21 @@
 #!/bin/bash
 
 if [ $EUID != 0 ]; then
-	echo "You must run the installer as root."
+	echo "You must run this installer as root."
+	echo "Use this command: sudo ./install.sh"
+	
 	exit
 fi
 
 name="Bashmash"
 version="0.2"
+
+if ! command -v g++ &> /dev/null; then
+	echo "You must install G++ to install $name $version."
+	echo "Use this command: sudo apt install g++"
+	
+	exit
+fi
 
 cppSources=("src/fact.cpp" "src/bin2oct.cpp" "src/bin2dec.cpp" "src/bin2hex.cpp" "src/oct2bin.cpp" "src/oct2dec.cpp" "src/oct2hex.cpp" "src/dec2bin.cpp" "src/dec2oct.cpp" "src/dec2hex.cpp" "src/hex2bin.cpp" "src/hex2oct.cpp" "src/hex2dec.cpp")
 cppDestinations=("/bin/fact" "/bin/bin2oct" "/bin/bin2dec" "/bin/bin2hex" "/bin/oct2bin" "/bin/oct2dec" "/bin/oct2hex" "/bin/dec2bin" "/bin/dec2oct" "/bin/dec2hex" "/bin/hex2bin" "/bin/hex2oct" "/bin/hex2dec")
@@ -40,8 +49,8 @@ for (( i = 0; i < $cppFiles; i++ )); do
 done
 
 if [ "$error" == "true" ]; then
-	echo "$name $version installation has failed."
-	echo "Make sure that you have installed G++."
+	echo "Errors have occurred while installing $name $version."
+	echo "Make sure that none of the source files are missing or corrupted."
 	
 	exit
 fi
