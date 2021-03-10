@@ -14,7 +14,8 @@ Currently the following mathematical operations are supported:
 
 ## Latest release
 The latest test release is 0.2.  
-It introduces the following new features:
+It introduces the following new features and changes:
+ - Commands got reimplemented in C++
  - Conversion between binary, octal, decimal and hexadecimal
 
 ## Installation
