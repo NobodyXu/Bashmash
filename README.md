@@ -13,9 +13,9 @@ Currently the following mathematical operations are supported:
  - Conversion between binary, octal, decimal and hexadecimal
 
 ## Latest release
-The latest test release is 0.1.  
+The latest test release is 0.2.  
 It introduces the following new features:
- - Factorial
+ - Conversion between binary, octal, decimal and hexadecimal
 
 ## Installation
 ### Requirements
