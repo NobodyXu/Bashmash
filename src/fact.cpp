@@ -1,35 +1,56 @@
 #include "NonNegativeInteger.h"
+
 #include <iostream>
+#include <utilities.h>
 
-void printUsage() {
-	cout << "Usage: fact <non_negative_integer>" << endl;
-}
-
-NonNegativeInteger* fact(NonNegativeInteger* x) {
-	if (x->equalTo(0))
-		return new NonNegativeInteger(1);
+using namespace std;
+extern "C" {
+	#include <loadables.h>
+	
+	int fact(WORD_LIST* list) {
+		const char* argv[1];
+		if (to_argv(list, 1, argv) == -1)
+			return EX_USAGE;
 		
-	NonNegativeInteger* y = new NonNegativeInteger(1);
-	for (NonNegativeInteger* i = new NonNegativeInteger(2); i->lessThanOrEqualTo(x); i->increment())
-		y->multiply(i);
+		NonNegativeInteger* x = new NonNegativeInteger(argv[0]);
+		if (!x->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		if (x->equalTo(0)) {
+			cout << "1";
+			return EXECUTION_SUCCESS;
+		}
+		
+		NonNegativeInteger* y = new NonNegativeInteger(1);
+		for (NonNegativeInteger* i = new NonNegativeInteger(2); i->lessThanOrEqualTo(x); i->increment())
+			y->multiply(i);
+		
+		cout << y->toUnsignedLongLong();
+		return EXECUTION_SUCCESS;
+	}
 	
-	return y;
-}
-
-int main(int argc, char** argv) {
-	if (argc != 2) {
-		printUsage();
+	PUBLIC struct builtin fact_struct = {
+		(char*)"fact",
+		fact,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"Factorial",
+			(char*)"Outputs a factorial of a given non-negative integer.",
+			(char*) NULL
+		},
+		
+		"fact <non_negative_integer>",
+		0
+	};
+	
+	PUBLIC int fact_builtin_load(char* name) {
+		cout << "Done." << endl;
 		return 1;
 	}
 	
-	NonNegativeInteger* x = new NonNegativeInteger(argv[1]);
-	if (!x->isValid()) {
-		printUsage();
-		return 1;
+	PUBLIC void fact_builtin_unload(char* name) {
 	}
-	
-	NonNegativeInteger* y = fact(x);
-	cout << y->toString();
-	
-	return 0;
 }
