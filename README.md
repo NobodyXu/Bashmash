@@ -21,9 +21,13 @@ It introduces the following new features and changes:
 ## Installation
 ### Requirements
  - G++: `sudo apt install g++`
+ - Clang: `sudo apt install clang`
+ - LLD: `sudo apt install lld`
+ - cap-ng.h: `sudo apt install libcap-ng-dev`
+ - seccomp.h: `sudo apt install libseccomp-dev`
 
 ### Steps
-1. Clone this repository: `git clone https://github.com/HubertPastyrzak/Bashmash`.
+1. Clone this repository including the submodules: `git clone --recurse-submodules https://github.com/HubertPastyrzak/Bashmash`.
 2. Go to the downloaded folder: `cd Bashmash`.
 3. Assign execution permissions to the installer: `chmod +x install.sh`.
 4. Run the installer: `sudo ./install.sh`.
