@@ -1,33 +1,51 @@
 #include "NonNegativeInteger.h"
+#include <utilities.h>
 
 #include <iostream>
 #include <sstream>
 
-void printUsage() {
-	cout << "Usage: dec2oct <non_negative_integer>" << endl;
-}
-
-string dec2oct(NonNegativeInteger* x) {	
-	ostringstream y;
-	y << oct << x->toUnsignedLongLong();
+using namespace std;
+extern "C" {
+	#include <loadables.h>
 	
-	return y.str();
-}
-
-int main(int argc, char** argv) {
-	if (argc != 2) {
-		printUsage();
+	int dec2oct(WORD_LIST* wordList) {
+		const char* argv[1];
+		if (to_argv(wordList, 1, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* x = new NonNegativeInteger(argv[0]);
+		if (!x->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		ostringstream y;
+		y << oct << x->toUnsignedLongLong();
+		
+		cout << y.str();
+		return EXECUTION_SUCCESS;
+	}
+	
+	PUBLIC struct builtin dec2oct = {
+		(char*)"dec2oct",
+		dec2oct,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"Decimal to octal conversion",
+			(char*)"Converts a given non-negative decimal integer to the octal system.",
+			(char*)NULL
+		},
+		
+		"dec2oct <non_negative_integer>",
+		0
+	};
+	
+	PUBLIC int dec2oct_builtin_load(char* name) {
+		cout << "Done." << endl;
 		return 1;
 	}
 	
-	NonNegativeInteger* x = new NonNegativeInteger(argv[1]);
-	if (!x->isValid()) {
-		printUsage();
-		return 1;
+	PUBLIC void dec2oct_builtin_unload(char* name) {
 	}
-	
-	string y = dec2oct(x);
-	cout << y;
-	
-	return 0;
 }

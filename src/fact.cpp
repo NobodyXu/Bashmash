@@ -38,8 +38,8 @@ extern "C" {
 		BUILTIN_ENABLED,
 		(char*[]) {
 			(char*)"Factorial",
-			(char*)"Outputs a factorial of a given non-negative integer.",
-			(char*) NULL
+			(char*)"Calculates a factorial of a given non-negative integer.",
+			(char*)NULL
 		},
 		
 		"fact <non_negative_integer>",
