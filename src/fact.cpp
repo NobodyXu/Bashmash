@@ -1,9 +1,9 @@
 #include "NonNegativeInteger.h"
-
-#include <iostream>
 #include <utilities.h>
 
+#include <iostream>
 using namespace std;
+
 extern "C" {
 	#include <loadables.h>
 	
