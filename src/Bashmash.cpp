@@ -1,7 +1,7 @@
 #include "NonNegativeBinaryInteger.h"
 #include "NonNegativeOctalInteger.h"
 #include "NonNegativeInteger.h"
-#include "NonNegativeHexadecimal.h"
+#include "NonNegativeHexadecimalInteger.h"
 
 #include "math/fact.h"
 
