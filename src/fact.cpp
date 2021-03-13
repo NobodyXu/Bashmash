@@ -7,9 +7,9 @@ using namespace std;
 extern "C" {
 	#include <loadables.h>
 	
-	int fact(WORD_LIST* list) {
+	int fact(WORD_LIST* wordList) {
 		const char* argv[1];
-		if (to_argv(list, 1, argv) == -1)
+		if (to_argv(wordList, 1, argv) == -1)
 			return EX_USAGE;
 		
 		NonNegativeInteger* x = new NonNegativeInteger(argv[0]);
