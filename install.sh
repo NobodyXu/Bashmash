@@ -24,7 +24,7 @@ make
 cd ..
 make all -j $(nproc)
 
-cd..
+cd ..
 echo -n "Installing $name $version..."
 
 g++ "src/Bashmash.cpp" "src/math/fact.cpp" "src/converters/bin2oct.cpp" "src/converters/bin2dec.cpp" "src/converters/bin2hex.cpp" "src/converters/oct2bin.cpp" "src/converters/oct2dec.cpp" "src/converters/oct2hex.cpp" "src/converters/dec2bin.cpp" "src/converters/dec2oct.cpp" "src/converters/dec2hex.cpp" "src/converters/hex2bin.cpp" "src/converters/hex2oct.cpp" "src/converters/hex2dec.cpp" "src/integers/NonNegativeBinaryInteger.cpp" "src/integers/NonNegativeOctalInteger.cpp" "src/integers/NonNegativeInteger.cpp" "src/integers/NonNegativeHexadecimalInteger.cpp" -I"bash-loadables" -I"bash-loadables/bash/include" -o "/bin/bashmash" -shared -fPIC
