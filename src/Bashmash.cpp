@@ -1,7 +1,7 @@
-#include "NonNegativeBinaryInteger.h"
-#include "NonNegativeOctalInteger.h"
-#include "NonNegativeInteger.h"
-#include "NonNegativeHexadecimalInteger.h"
+#include "integers/NonNegativeBinaryInteger.h"
+#include "integers/NonNegativeOctalInteger.h"
+#include "integers/NonNegativeInteger.h"
+#include "integers/NonNegativeHexadecimalInteger.h"
 
 #include "math/fact.h"
 
@@ -21,12 +21,11 @@
 #include "converters/hex2oct.h"
 #include "converters/hex2dec.h"
 
-#include <utilities.h>
 #include <iostream>
 
 using namespace std;
 extern "C" {
-	#include <loadables.h>
+	#include <utilities.h>
 	
 	int fact_builtin(WORD_LIST* wordList) {
 		const char* argv[1];
@@ -39,7 +38,7 @@ extern "C" {
 			return EX_USAGE;
 		}
 		
-		string y = fact(x);
+		string y = to_string(fact(x)->toUnsignedLongLong());
 		cout << y;
 		
 		return EXECUTION_SUCCESS;
@@ -250,7 +249,7 @@ extern "C" {
 	}
 	
 	PUBLIC struct builtin fact_struct = {
-		"fact",
+		(char*)"fact",
 		fact_builtin,
 		
 		BUILTIN_ENABLED,
@@ -265,7 +264,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin bin2oct_struct = {
-		"bin2oct",
+		(char*)"bin2oct",
 		bin2oct_builtin,
 		
 		BUILTIN_ENABLED,
@@ -280,7 +279,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin bin2dec_struct = {
-		"bin2dec",
+		(char*)"bin2dec",
 		bin2dec_builtin,
 		
 		BUILTIN_ENABLED,
@@ -295,7 +294,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin bin2hex_struct = {
-		"bin2hex",
+		(char*)"bin2hex",
 		bin2hex_builtin,
 		
 		BUILTIN_ENABLED,
@@ -310,7 +309,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin oct2bin_struct = {
-		"oct2bin",
+		(char*)"oct2bin",
 		oct2bin_builtin,
 		
 		BUILTIN_ENABLED,
@@ -325,7 +324,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin oct2dec_struct = {
-		"oct2dec",
+		(char*)"oct2dec",
 		oct2dec_builtin,
 		
 		BUILTIN_ENABLED,
@@ -340,7 +339,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin oct2hex_struct = {
-		"oct2hex",
+		(char*)"oct2hex",
 		oct2hex_builtin,
 		
 		BUILTIN_ENABLED,
@@ -355,7 +354,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin dec2bin_struct = {
-		"dec2bin",
+		(char*)"dec2bin",
 		dec2bin_builtin,
 		
 		BUILTIN_ENABLED,
@@ -370,7 +369,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin dec2oct_struct = {
-		"dec2oct",
+		(char*)"dec2oct",
 		dec2oct_builtin,
 		
 		BUILTIN_ENABLED,
@@ -385,7 +384,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin dec2hex_struct = {
-		"dec2hex",
+		(char*)"dec2hex",
 		dec2hex_builtin,
 		
 		BUILTIN_ENABLED,
@@ -400,7 +399,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin hex2bin_struct = {
-		"hex2bin",
+		(char*)"hex2bin",
 		hex2bin_builtin,
 		
 		BUILTIN_ENABLED,
@@ -415,7 +414,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin hex2oct_struct = {
-		"hex2oct",
+		(char*)"hex2oct",
 		hex2oct_builtin,
 		
 		BUILTIN_ENABLED,
@@ -430,7 +429,7 @@ extern "C" {
 	};
 	
 	PUBLIC struct builtin hex2dec_struct = {
-		"hex2dec",
+		(char*)"hex2dec",
 		hex2dec_builtin,
 		
 		BUILTIN_ENABLED,
