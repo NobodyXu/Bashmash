@@ -18,6 +18,10 @@ It introduces the following new features and changes:
  - Commands got reimplemented in C++
  - Conversion between binary, octal, decimal and hexadecimal
 
+## Powered by
+Bashmash is powered by:
+ - [bash-loadables](https://github.com/NobodyXu/bash-loadables) by [NobodyXu](https://github.com/NobodyXu)
+
 ## Installation
 ### Requirements
  - G++: `sudo apt install g++`
@@ -32,6 +36,14 @@ It introduces the following new features and changes:
 3. Assign execution permissions to the installer: `chmod +x install.sh`.
 4. Run the installer: `sudo ./install.sh`.
 5. Bashmash is now ready to use. :)
+
+## Importing commands
+```
+enable -f /bin/bashmash <command>
+
+Example:
+enable -f /bin/bashmash dec2bin
+```
 
 ## Usage
 ### Factorials
