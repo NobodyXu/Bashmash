@@ -17,35 +17,15 @@ if ! command -v g++ &> /dev/null; then
 	exit
 fi
 
-cppSources=("src/fact.cpp" "src/bin2oct.cpp" "src/bin2dec.cpp" "src/bin2hex.cpp" "src/oct2bin.cpp" "src/oct2dec.cpp" "src/oct2hex.cpp" "src/dec2bin.cpp" "src/dec2oct.cpp" "src/dec2hex.cpp" "src/hex2bin.cpp" "src/hex2oct.cpp" "src/hex2dec.cpp")
-cppDestinations=("/bin/fact" "/bin/bin2oct" "/bin/bin2dec" "/bin/bin2hex" "/bin/oct2bin" "/bin/oct2dec" "/bin/oct2hex" "/bin/dec2bin" "/bin/dec2oct" "/bin/dec2hex" "/bin/hex2bin" "/bin/hex2oct" "/bin/hex2dec")
+echo -n "Installing $name $version..."
+g++ "src/Bashmash.cpp" "src/math/fact.cpp" "src/converters/bin2oct.cpp" "src/converters/bin2dec.cpp" "src/converters/bin2hex.cpp" "src/converters/oct2bin.cpp" "src/converters/oct2dec.cpp" "src/converters/oct2hex.cpp" "src/converters/dec2bin.cpp" "src/converters/dec2oct.cpp" "src/converters/dec2hex.cpp" "src/converters/hex2bin.cpp" "src/converters/hex2oct.cpp" "src/converters/hex2dec.cpp" "src/integers/NonNegativeBinaryInteger.cpp" "src/integers/NonNegativeOctalInteger.cpp" "src/integers/NonNegativeInteger.cpp" "src/integers/NonNegativeHexadecimalInteger.cpp" -I"bash-loadables" -I"bash-loadables/bash/include" -o "/bin/bashmash" -shared -fPIC
 
-cppLibraries=("src/NonNegativeInteger.cpp" "src/NonNegativeBinaryInteger.cpp" "src/NonNegativeBinaryInteger.cpp" "src/NonNegativeBinaryInteger.cpp" "src/NonNegativeOctalInteger.cpp" "src/NonNegativeOctalInteger.cpp" "src/NonNegativeOctalInteger.cpp" "src/NonNegativeInteger.cpp" "src/NonNegativeInteger.cpp" "src/NonNegativeInteger.cpp" "src/NonNegativeHexadecimalInteger.cpp" "src/NonNegativeHexadecimalInteger.cpp" "src/NonNegativeHexadecimalInteger.cpp")
-cppFiles=${#cppSources[@]}
+if [ $? != 0 ]; then
+	echo "Errors have occurred while installing $name $version."
+	echo "Please fix the above errors and try again."
+	
+	exit
+fi
 
-echo "Installing $name $version..."
-error="false"
-
-for (( i = 0; i < $cppFiles; i++ )); do
-	source="${cppSources[$i]}"
-	destination="${cppDestinations[$i]}"
-	
-	library="${cppLibraries[$i]}"
-	
-	echo -n "$source..."
-	g++ "$source" "$library" "-Isrc" -o "$destination"
-	
-	if [ $? != 0 ]; then
-		echo "An error has occurred while installing $name $version."
-		echo "Please fix the above errors before you proceed with installation."
-		
-		exit
-	fi
-	
-	chmod +x "$destination"
-	if [ $? == 0 ]; then
-		echo "Done"
-	fi
-done
-
+echo "Done."
 echo "$name $version has been successfully installed."
