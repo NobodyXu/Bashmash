@@ -5,6 +5,11 @@
 
 #include "math/fact.h"
 
+#include "logic/not.h"
+#include "logic/or.h"
+#include "logic/and.h"
+#include "logic/xor.h"
+
 #include "converters/bin2oct.h"
 #include "converters/bin2dec.h"
 #include "converters/bin2hex.h"
@@ -41,6 +46,92 @@ extern "C" {
 		string y = to_string(fact(x)->toUnsignedLongLong());
 		cout << y;
 		
+		return EXECUTION_SUCCESS;
+	}
+	
+	int not_builtin(WORD_LIST* wordList) {
+		const char* argv[1];
+		if (to_argv(wordList, 1, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* x = new NonNegativeInteger(argv[0]);
+		if (!x->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		string y = to_string(_not(x)->toUnsignedLongLong());
+		cout << y;
+		
+		return EXECUTION_SUCCESS;
+	}
+	
+	int or_builtin(WORD_LIST* wordList) {
+		const char* argv[2];
+		if (to_argv(wordList, 2, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		if (!a->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		if (!b->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		string y = to_string(_or(a, b)->toUnsignedLongLong());
+		cout << y;
+	
+		return EXECUTION_SUCCESS;
+	}
+	
+	int and_builtin(WORD_LIST* wordList) {
+		const char* argv[2];
+		if (to_argv(wordList, 2, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		if (!a->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		if (!b->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		string y = to_string(_and(a, b)->toUnsignedLongLong());
+		cout << y;
+	
+		return EXECUTION_SUCCESS;
+	}
+	
+	int xor_builtin(WORD_LIST* wordList) {
+		const char* argv[2];
+		if (to_argv(wordList, 2, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		if (!a->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		if (!b->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		string y = to_string(_xor(a, b)->toUnsignedLongLong());
+		cout << y;
+	
 		return EXECUTION_SUCCESS;
 	}
 	
@@ -263,6 +354,66 @@ extern "C" {
 		0
 	};
 	
+	PUBLIC struct builtin not_struct = {
+		(char*)"not",
+		not_builtin,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"NOT",
+			(char*)"Negates a given non-negative integer.",
+			(char*)NULL
+		},
+		
+		"not <non_negative_integer>",
+		0
+	};
+	
+	PUBLIC struct builtin or_struct = {
+		(char*)"or",
+		or_builtin,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"OR",
+			(char*)"Performs an OR operation on given non-negative integers.",
+			(char*)NULL
+		},
+		
+		"or <non_negative_integer> <non_negative_integer>",
+		0
+	};
+	
+	PUBLIC struct builtin and_struct = {
+		(char*)"and",
+		and_builtin,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"AND",
+			(char*)"Performs an AND operation on given non-negative integers.",
+			(char*)NULL
+		},
+		
+		"and <non_negative_integer> <non_negative_integer>",
+		0
+	};
+	
+	PUBLIC struct builtin xor_struct = {
+		(char*)"xor",
+		xor_builtin,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"XOR",
+			(char*)"Performs an XOR operation on given non-negative integers.",
+			(char*)NULL
+		},
+		
+		"xor <non_negative_integer> <non_negative_integer>",
+		0
+	};
+	
 	PUBLIC struct builtin bin2oct_struct = {
 		(char*)"bin2oct",
 		bin2oct_builtin,
@@ -447,6 +598,22 @@ extern "C" {
 		return 1;
 	}
 	
+	PUBLIC int not_builtin_load(char* name) {
+		return 1;
+	}
+	
+	PUBLIC int or_builtin_load(char* name) {
+		return 1;
+	}
+	
+	PUBLIC int and_builtin_load(char* name) {
+		return 1;
+	}
+	
+	PUBLIC int xor_builtin_load(char* name) {
+		return 1;
+	}
+	
 	PUBLIC int bin2oct_builtin_load(char* name) {
 		return 1;
 	}
@@ -496,6 +663,18 @@ extern "C" {
 	}
 	
 	PUBLIC void fact_builtin_unload(char* name) {
+	}
+	
+	PUBLIC void not_builtin_unload(char* name) {
+	}
+	
+	PUBLIC void or_builtin_unload(char* name) {
+	}
+	
+	PUBLIC void and_builtin_unload(char* name) {
+	}
+	
+	PUBLIC void xor_builtin_unload(char* name) {
 	}
 	
 	PUBLIC void bin2oct_builtin_unload(char* name) {
