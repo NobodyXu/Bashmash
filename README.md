@@ -10,8 +10,8 @@ As for now, Bashmash supports only 64-bit numbers.
 Support for infinitely long numbers will be implemented in future releases.  
 Currently the following mathematical operations are supported:
  - Factorial
- - Conversion between binary, octal, decimal and hexadecimal
  - Bitwise operations: NOT, OR, AND, and XOR
+ - Conversion between binary, octal, decimal and hexadecimal
 
 ## Latest release
 The latest test release is 0.3.  
