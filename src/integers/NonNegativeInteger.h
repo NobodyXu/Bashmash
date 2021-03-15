@@ -13,6 +13,8 @@ private:
 	bool isNonNegativeInteger(string x);
 	
 public:
+	NonNegativeInteger(NonNegativeInteger* x);
+
 	NonNegativeInteger(unsigned long long x);
 	NonNegativeInteger(string x);
 	
@@ -24,6 +26,11 @@ public:
 	
 	bool lessThanOrEqualTo(NonNegativeInteger* x);
 	bool equalTo(unsigned long long x);
+	
+	void _not();
+	void _or(NonNegativeInteger* x);
+	void _and(NonNegativeInteger* x);
+	void _xor(NonNegativeInteger* x);
 	
 	void increment();
 	void multiply(NonNegativeInteger* x);

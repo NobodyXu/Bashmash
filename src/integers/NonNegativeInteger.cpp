@@ -1,5 +1,13 @@
 #include "NonNegativeInteger.h"
 
+NonNegativeInteger::NonNegativeInteger(NonNegativeInteger* x) {
+	fieldCount = 1;
+	fields = new unsigned long long[1];
+	
+	fields[0] = x->toUnsignedLongLong();
+	valid = true;
+}
+
 NonNegativeInteger::NonNegativeInteger(unsigned long long x) {
 	fieldCount = 1;
 	fields = new unsigned long long[1];
@@ -56,6 +64,22 @@ bool NonNegativeInteger::lessThanOrEqualTo(NonNegativeInteger* x) {
 
 bool NonNegativeInteger::equalTo(unsigned long long x) {
 	return fields[0] == x;
+}
+
+void NonNegativeInteger::_not() {
+	fields[0] = ~fields[0];
+}
+
+void NonNegativeInteger::_or(NonNegativeInteger* x) {
+	fields[0] |= x->toUnsignedLongLong();
+}
+
+void NonNegativeInteger::_and(NonNegativeInteger* x) {
+	fields[0] &= x->toUnsignedLongLong();
+}
+
+void NonNegativeInteger::_xor(NonNegativeInteger* x) {
+	fields[0] ^= x->toUnsignedLongLong();
 }
 
 void NonNegativeInteger::increment() {
