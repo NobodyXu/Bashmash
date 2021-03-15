@@ -11,6 +11,7 @@ Support for infinitely long numbers will be implemented in future releases.
 Currently the following mathematical operations are supported:
  - Factorial
  - Conversion between binary, octal, decimal and hexadecimal
+ - Bitwise operations: NOT, OR, AND, and XOR
 
 ## Latest release
 The latest test release is 0.2.  
@@ -55,6 +56,50 @@ fact 5
 
 Output:
 120
+```
+
+### NOT
+```bash
+not <non_negative_integer>
+
+Example:
+not 5
+
+Output:
+18446744073709551610   # 64-bit negation of 5
+```
+
+### OR
+```bash
+or <non_negative_integer> <non_negative_integer>
+
+Example:
+or 5 10
+
+Output:
+15
+```
+
+### AND
+```bash
+and <non_negative_integer> <non_negative_integer>
+
+Example:
+and 5 10
+
+Output:
+0
+```
+
+### XOR
+```bash
+xor <non_negative_integer> <non_negative_integer>
+
+Example:
+xor 5 10
+
+Output:
+15
 ```
 
 ### Binary to octal conversion
