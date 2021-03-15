@@ -14,10 +14,10 @@ Currently the following mathematical operations are supported:
  - Bitwise operations: NOT, OR, AND, and XOR
 
 ## Latest release
-The latest test release is 0.2.  
+The latest test release is 0.3.  
 It introduces the following new features and changes:
- - Commands got reimplemented in C++
- - Conversion between binary, octal, decimal and hexadecimal
+ - Commands are now loaded as Bash builtins (see [Importing commands](#importing-commands))
+ - Bitwise operations: NOT, OR, AND, and XOR
 
 ## Powered by
 Bashmash is powered by:
@@ -39,7 +39,7 @@ Bashmash is powered by:
 5. Bashmash is now ready to use. :)
 
 ## Importing commands
-```
+```bash
 enable -f /bin/bashmash <command>
 
 Example:
