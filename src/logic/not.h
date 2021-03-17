@@ -1,4 +1,7 @@
 #pragma once
 #include "../integers/NonNegativeInteger.h"
 
-NonNegativeInteger* _not(NonNegativeInteger* x);
+#include <string>
+using namespace std;
+
+string _not(NonNegativeInteger* x);

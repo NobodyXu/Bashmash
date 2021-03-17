@@ -1,8 +1,14 @@
 #include "not.h"
+#include <sstream>
 
-NonNegativeInteger* _not(NonNegativeInteger* x) {
+string _not(NonNegativeInteger* x) {
 	NonNegativeInteger* y = new NonNegativeInteger(x);
-	y->_not();
+	if (y->equalTo(0xFFFFFFFFFFFFFFFFL))
+		return "-18446744073709551616";
 	
-	return y;
+	y->increment();
+	ostringstream yString;
+	
+	yString << "-" << y->toUnsignedLongLong();
+	return yString.str();
 }
