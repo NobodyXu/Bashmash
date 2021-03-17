@@ -60,7 +60,7 @@ extern "C" {
 			return EX_USAGE;
 		}
 		
-		string y = to_string(_not(x)->toUnsignedLongLong());
+		string y = _not(x);
 		cout << y;
 		
 		return EXECUTION_SUCCESS;
