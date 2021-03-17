@@ -42,7 +42,10 @@ Bashmash is powered by:
 ```bash
 enable -f /bin/bashmash <command>
 
+
+
 Example:
+
 enable -f /bin/bashmash dec2bin
 ```
 
