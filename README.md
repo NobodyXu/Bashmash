@@ -66,7 +66,7 @@ Example:
 not 5
 
 Output:
-18446744073709551610   # 64-bit negation of 5
+-6
 ```
 
 ### OR
