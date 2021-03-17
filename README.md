@@ -49,187 +49,58 @@ enable -f /bin/bashmash dec2bin
 ## Usage
 ### Factorials
 ```bash
-fact <non_negative_integer>
+fact <x>
 
 Example:
-fact 5
-
-Output:
-120
+fact 5           # 120
 ```
 
-### NOT
+### Bitwise operations
 ```bash
-not <non_negative_integer>
+not <x>
+or <a> <b>
+and <a> <b>
+xor <a> <b>
 
-Example:
-not 5
-
-Output:
--6
+Examples:
+not 5            # -6
+or 5 10          # 15
+and 5 10         # 0
+xor 5 10         # 15
 ```
 
-### OR
+### Conversion between systems
 ```bash
-or <non_negative_integer> <non_negative_integer>
+bin2oct <x>
+bin2dec <x>
+bin2hex <x>
 
-Example:
-or 5 10
+oct2bin <x>
+oct2dec <x>
+oct2hex <x>
 
-Output:
-15
-```
+dec2bin <x>
+dec2oct <x>
+dec2hex <x>
 
-### AND
-```bash
-and <non_negative_integer> <non_negative_integer>
+hex2bin <x>
+hex2oct <x>
+hex2dec <x>
 
-Example:
-and 5 10
+Examples:
+bin2oct 101111   # 57
+bin2dec 101111   # 47
+bin2hex 101111   # 2f
 
-Output:
-0
-```
+oct2bin 57       # 101111
+oct2dec 57       # 47
+oct2hex 57       # 2f
 
-### XOR
-```bash
-xor <non_negative_integer> <non_negative_integer>
+dec2bin 47       # 101111
+dec2oct 47       # 57
+dec2hex 47       # 2f
 
-Example:
-xor 5 10
-
-Output:
-15
-```
-
-### Binary to octal conversion
-```bash
-bin2oct <non_negative_binary_integer>
-
-Example:
-bin2oct 101111
-
-Output:
-57
-```
-
-### Binary to decimal conversion
-```bash
-bin2dec <non_negative_binary_integer>
-
-Example:
-bin2dec 101111
-
-Output:
-47
-```
-
-### Binary to hexadecimal conversion
-```bash
-bin2hex <non_negative_binary_integer>
-
-Example:
-bin2hex 101111
-
-Output:
-2f
-```
-
-### Octal to binary conversion
-```bash
-oct2bin <non_negative_octal_integer>
-
-Example:
-oct2bin 57
-
-Output:
-101111
-```
-
-### Octal to decimal conversion
-```bash
-oct2dec <non_negative_octal_integer>
-
-Example:
-oct2dec 57
-
-Output:
-47
-```
-
-### Octal to hexadecimal conversion
-```bash
-oct2hex <non_negative_octal_integer>
-
-Example:
-oct2hex 57
-
-Output:
-2f
-```
-
-### Decimal to binary conversion
-```bash
-dec2bin <non_negative_integer>
-
-Example:
-dec2bin 47
-
-Output:
-101111
-```
-
-### Decimal to octal conversion
-```bash
-dec2oct <non_negative_integer>
-
-Example:
-dec2oct 47
-
-Output:
-57
-```
-
-### Decimal to hexadecimal conversion
-```bash
-dec2hex <non_negative_integer>
-
-Example:
-dec2hex 47
-
-Output:
-2f
-```
-
-### Hexadecimal to binary conversion
-```bash
-hex2bin <non_negative_hexadecimal_integer>
-
-Example:
-hex2bin 2f
-
-Output:
-101111
-```
-
-### Hexadecimal to octal conversion
-```bash
-hex2oct <non_negative_hexadecimal_integer>
-
-Example:
-hex2oct 2f
-
-Output:
-57
-```
-
-### Hexadecimal to decimal conversion
-```bash
-hex2dec <non_negative_hexadecimal_integer>
-
-Example:
-hex2dec 2f
-
-Output:
-47
+hex2bin 2f       # 101111
+hex2oct 2f       # 57
+hex2dec 2f       # 47
 ```
