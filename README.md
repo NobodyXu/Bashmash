@@ -54,6 +54,7 @@ fact <x>         # x!
 
 
 Example:
+
 fact 5           # 120
 ```
 
@@ -67,6 +68,7 @@ xor <a> <b>      # a ^ b
 
 
 Examples:
+
 not 5            # -6
 or  5 10         # 15
 and 5 10         # 0
@@ -94,6 +96,7 @@ hex2dec <x>      # x16 -> x10
 
 
 Examples:
+
 bin2oct 101111   # 57
 bin2dec 101111   # 47
 bin2hex 101111   # 2f
