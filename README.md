@@ -49,7 +49,7 @@ enable -f /bin/bashmash dec2bin
 ## Usage
 ### Factorials
 ```bash
-fact <x>
+fact <x>         # x!
 
 Example:
 fact 5           # 120
@@ -57,35 +57,39 @@ fact 5           # 120
 
 ### Bitwise operations
 ```bash
-not <x>
-or <a> <b>
-and <a> <b>
-xor <a> <b>
+not <x>          # ~x
+or <a> <b>       # A | B
+and <a> <b>      # A & B
+xor <a> <b>      # A ^ B
+
+
 
 Examples:
 not 5            # -6
-or 5 10          # 15
+or  5 10          # 15
 and 5 10         # 0
 xor 5 10         # 15
 ```
 
 ### Conversion between systems
 ```bash
-bin2oct <x>
-bin2dec <x>
-bin2hex <x>
+bin2oct <x>      # Binary to octal
+bin2dec <x>      # Binary to decimal
+bin2hex <x>      # Binary to hexadecimal
 
-oct2bin <x>
-oct2dec <x>
-oct2hex <x>
+oct2bin <x>      # Octal to binary
+oct2dec <x>      # Octal to decimal
+oct2hex <x>      # Octal to hexadecimal
 
-dec2bin <x>
-dec2oct <x>
-dec2hex <x>
+dec2bin <x>      # Decimal to binary
+dec2oct <x>      # Decimal to octal
+dec2hex <x>      # Decimal to hexadecimal
 
-hex2bin <x>
-hex2oct <x>
-hex2dec <x>
+hex2bin <x>      # Hexadecimal to binary
+hex2oct <x>      # Hexadecimal to octal
+hex2dec <x>      # Hexadecimal to decimal
+
+
 
 Examples:
 bin2oct 101111   # 57
