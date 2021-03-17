@@ -51,6 +51,8 @@ enable -f /bin/bashmash dec2bin
 ```bash
 fact <x>         # x!
 
+
+
 Example:
 fact 5           # 120
 ```
@@ -58,36 +60,36 @@ fact 5           # 120
 ### Bitwise operations
 ```bash
 not <x>          # ~x
-or <a> <b>       # A | B
-and <a> <b>      # A & B
-xor <a> <b>      # A ^ B
+or  <a> <b>      # a | b
+and <a> <b>      # a & b
+xor <a> <b>      # a ^ b
 
 
 
 Examples:
 not 5            # -6
-or  5 10          # 15
+or  5 10         # 15
 and 5 10         # 0
 xor 5 10         # 15
 ```
 
 ### Conversion between systems
 ```bash
-bin2oct <x>      # Binary to octal
-bin2dec <x>      # Binary to decimal
-bin2hex <x>      # Binary to hexadecimal
+bin2oct <x>      # x2 -> x8
+bin2dec <x>      # x2 -> x10
+bin2hex <x>      # x2 -> x16
 
-oct2bin <x>      # Octal to binary
-oct2dec <x>      # Octal to decimal
-oct2hex <x>      # Octal to hexadecimal
+oct2bin <x>      # x8 -> x2
+oct2dec <x>      # x8 -> x10
+oct2hex <x>      # x8 -> x16
 
-dec2bin <x>      # Decimal to binary
-dec2oct <x>      # Decimal to octal
-dec2hex <x>      # Decimal to hexadecimal
+dec2bin <x>      # x10 -> x2
+dec2oct <x>      # x10 -> x8
+dec2hex <x>      # x10 -> x16
 
-hex2bin <x>      # Hexadecimal to binary
-hex2oct <x>      # Hexadecimal to octal
-hex2dec <x>      # Hexadecimal to decimal
+hex2bin <x>      # x16 -> x2
+hex2oct <x>      # x16 -> x8
+hex2dec <x>      # x16 -> x10
 
 
 
