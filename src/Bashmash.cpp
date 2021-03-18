@@ -13,8 +13,8 @@
 #include "comparators/cless.h"
 #include "comparators/cleq.h"
 #include "comparators/ceq.h"
-#include "comparators/cgreat.h"
 #include "comparators/cgreq.h"
+#include "comparators/cgreat.h"
 
 #include "converters/bin2oct.h"
 #include "converters/bin2dec.h"
@@ -210,29 +210,6 @@ extern "C" {
 		return EXECUTION_SUCCESS;
 	}
 	
-	int cgreat_builtin(WORD_LIST* wordList) {
-		const char* argv[2];
-		if (to_argv(wordList, 2, argv) == -1)
-			return EX_USAGE;
-			
-		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
-		if (!a->isValid()) {
-			builtin_usage();
-			return EX_USAGE;
-		}
-		
-		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
-		if (!b->isValid()) {
-			builtin_usage();
-			return EX_USAGE;
-		}
-		
-		string y = cgreat(a, b);
-		cout << y;
-	
-		return EXECUTION_SUCCESS;
-	}
-	
 	int cgreq_builtin(WORD_LIST* wordList) {
 		const char* argv[2];
 		if (to_argv(wordList, 2, argv) == -1)
@@ -251,6 +228,29 @@ extern "C" {
 		}
 		
 		string y = cgreq(a, b);
+		cout << y;
+	
+		return EXECUTION_SUCCESS;
+	}
+	
+	int cgreat_builtin(WORD_LIST* wordList) {
+		const char* argv[2];
+		if (to_argv(wordList, 2, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		if (!a->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		if (!b->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		string y = cgreat(a, b);
 		cout << y;
 	
 		return EXECUTION_SUCCESS;
@@ -580,21 +580,6 @@ extern "C" {
 		0
 	};
 	
-	PUBLIC struct builtin cgreat_struct = {
-		(char*)"cgreat",
-		cgreat_builtin,
-		
-		BUILTIN_ENABLED,
-		(char*[]) {
-			(char*)"Greater than",
-			(char*)"Checks if the first number is greater than the second one.",
-			(char*)NULL
-		},
-		
-		"cgreat <non_negative_integer> <non_negative_integer>",
-		0
-	};
-	
 	PUBLIC struct builtin cgreq_struct = {
 		(char*)"cgreq",
 		cgreq_builtin,
@@ -607,6 +592,21 @@ extern "C" {
 		},
 		
 		"cgreq <non_negative_integer> <non_negative_integer>",
+		0
+	};
+	
+	PUBLIC struct builtin cgreat_struct = {
+		(char*)"cgreat",
+		cgreat_builtin,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"Greater than",
+			(char*)"Checks if the first number is greater than the second one.",
+			(char*)NULL
+		},
+		
+		"cgreat <non_negative_integer> <non_negative_integer>",
 		0
 	};
 	
@@ -822,11 +822,11 @@ extern "C" {
 		return 1;
 	}
 	
-	PUBLIC int cgreat_builtin_load(char* name) {
+	PUBLIC int cgreq_builtin_load(char* name) {
 		return 1;
 	}
 	
-	PUBLIC int cgreq_builtin_load(char* name) {
+	PUBLIC int cgreat_builtin_load(char* name) {
 		return 1;
 	}
 	
@@ -902,10 +902,10 @@ extern "C" {
 	PUBLIC void ceq_builtin_unload(char* name) {
 	}
 	
-	PUBLIC void cgreat_builtin_unload(char* name) {
+	PUBLIC void cgreq_builtin_unload(char* name) {
 	}
 	
-	PUBLIC void cgreq_builtin_unload(char* name) {
+	PUBLIC void cgreat_builtin_unload(char* name) {
 	}
 	
 	PUBLIC void bin2oct_builtin_unload(char* name) {
