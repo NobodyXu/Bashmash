@@ -1,5 +1,5 @@
 #include "cleq.h"
 
-string cleq(NonNegativeInteger* a, NonNegativeInteger* b) {
+string cleq(Integer* a, Integer* b) {
 	return a->lessThanOrEqualTo(b) ? "true" : "false";
 }

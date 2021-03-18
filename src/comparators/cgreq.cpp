@@ -1,5 +1,5 @@
 #include "cgreq.h"
 
-string cgreq(NonNegativeInteger* a, NonNegativeInteger* b) {
+string cgreq(Integer* a, Integer* b) {
 	return a->greaterThanOrEqualTo(b) ? "true" : "false";
 }

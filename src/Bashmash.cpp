@@ -146,13 +146,13 @@ extern "C" {
 		if (to_argv(wordList, 2, argv) == -1)
 			return EX_USAGE;
 			
-		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		Integer* a = new Integer(argv[0]);
 		if (!a->isValid()) {
 			builtin_usage();
 			return EX_USAGE;
 		}
 		
-		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		Integer* b = new Integer(argv[1]);
 		if (!b->isValid()) {
 			builtin_usage();
 			return EX_USAGE;
@@ -169,13 +169,13 @@ extern "C" {
 		if (to_argv(wordList, 2, argv) == -1)
 			return EX_USAGE;
 			
-		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		Integer* a = new Integer(argv[0]);
 		if (!a->isValid()) {
 			builtin_usage();
 			return EX_USAGE;
 		}
 		
-		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		Integer* b = new Integer(argv[1]);
 		if (!b->isValid()) {
 			builtin_usage();
 			return EX_USAGE;
@@ -192,13 +192,13 @@ extern "C" {
 		if (to_argv(wordList, 2, argv) == -1)
 			return EX_USAGE;
 			
-		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		Integer* a = new Integer(argv[0]);
 		if (!a->isValid()) {
 			builtin_usage();
 			return EX_USAGE;
 		}
 		
-		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		Integer* b = new Integer(argv[1]);
 		if (!b->isValid()) {
 			builtin_usage();
 			return EX_USAGE;
@@ -215,13 +215,13 @@ extern "C" {
 		if (to_argv(wordList, 2, argv) == -1)
 			return EX_USAGE;
 			
-		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		Integer* a = new Integer(argv[0]);
 		if (!a->isValid()) {
 			builtin_usage();
 			return EX_USAGE;
 		}
 		
-		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		Integer* b = new Integer(argv[1]);
 		if (!b->isValid()) {
 			builtin_usage();
 			return EX_USAGE;
@@ -238,13 +238,13 @@ extern "C" {
 		if (to_argv(wordList, 2, argv) == -1)
 			return EX_USAGE;
 			
-		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		Integer* a = new Integer(argv[0]);
 		if (!a->isValid()) {
 			builtin_usage();
 			return EX_USAGE;
 		}
 		
-		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		Integer* b = new Integer(argv[1]);
 		if (!b->isValid()) {
 			builtin_usage();
 			return EX_USAGE;

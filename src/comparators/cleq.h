@@ -1,4 +1,4 @@
 #pragma once
-#include "../integers/NonNegativeInteger.h"
+#include "../integers/Integer.h"
 
-string cleq(NonNegativeInteger* a, NonNegativeInteger* b);
+string cleq(Integer* a, Integer* b);

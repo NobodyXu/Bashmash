@@ -1,5 +1,5 @@
 #include "cgreat.h"
 
-string cgreat(NonNegativeInteger* a, NonNegativeInteger* b) {
+string cgreat(Integer* a, Integer* b) {
 	return a->greaterThan(b) ? "true" : "false";
 }

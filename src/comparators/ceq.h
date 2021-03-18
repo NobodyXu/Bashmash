@@ -1,4 +1,4 @@
 #pragma once
-#include "../integers/NonNegativeInteger.h"
+#include "../integers/Integer.h"
 
-string ceq(NonNegativeInteger* a, NonNegativeInteger* b);
+string ceq(Integer* a, Integer* b);

@@ -1,5 +1,5 @@
 #include "cless.h"
 
-string cless(NonNegativeInteger* a, NonNegativeInteger* b) {
+string cless(Integer* a, Integer* b) {
 	return a->lessThan(b) ? "true" : "false";
 }

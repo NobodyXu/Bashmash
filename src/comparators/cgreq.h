@@ -1,4 +1,4 @@
 #pragma once
-#include "../integers/NonNegativeInteger.h"
+#include "../integers/Integer.h"
 
-string cgreq(NonNegativeInteger* a, NonNegativeInteger* b);
+string cgreq(Integer* a, Integer* b);

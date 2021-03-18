@@ -1,5 +1,5 @@
 #include "ceq.h"
 
-string ceq(NonNegativeInteger* a, NonNegativeInteger* b) {
+string ceq(Integer* a, Integer* b) {
 	return a->equalTo(b) ? "true" : "false";
 }

@@ -1,4 +1,4 @@
 #pragma once
-#include "../integers/NonNegativeInteger.h"
+#include "../integers/Integer.h"
 
-string cless(NonNegativeInteger* a, NonNegativeInteger* b);
+string cless(Integer* a, Integer* b);

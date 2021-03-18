@@ -1,4 +1,4 @@
 #pragma once
-#include "../integers/NonNegativeInteger.h"
+#include "../integers/Integer.h"
 
-string cgreat(NonNegativeInteger* a, NonNegativeInteger* b);
+string cgreat(Integer* a, Integer* b);
