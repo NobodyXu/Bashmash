@@ -486,7 +486,7 @@ extern "C" {
 			(char*)NULL
 		},
 		
-		"not <non_negative_integer>",
+		"not <integer>",
 		0
 	};
 	
@@ -546,7 +546,7 @@ extern "C" {
 			(char*)NULL
 		},
 		
-		"cless <non_negative_integer> <non_negative_integer>",
+		"cless <integer> <integer>",
 		0
 	};
 	
@@ -561,7 +561,7 @@ extern "C" {
 			(char*)NULL
 		},
 		
-		"cleq <non_negative_integer> <non_negative_integer>",
+		"cleq <integer> <integer>",
 		0
 	};
 	
@@ -576,7 +576,7 @@ extern "C" {
 			(char*)NULL
 		},
 		
-		"ceq <non_negative_integer> <non_negative_integer>",
+		"ceq <integer> <integer>",
 		0
 	};
 	
@@ -591,7 +591,7 @@ extern "C" {
 			(char*)NULL
 		},
 		
-		"cgreq <non_negative_integer> <non_negative_integer>",
+		"cgreq <integer> <integer>",
 		0
 	};
 	
@@ -606,7 +606,7 @@ extern "C" {
 			(char*)NULL
 		},
 		
-		"cgreat <non_negative_integer> <non_negative_integer>",
+		"cgreat <integer> <integer>",
 		0
 	};
 	
