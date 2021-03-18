@@ -58,28 +58,12 @@ bool NonNegativeInteger::isValid() {
 	return valid;
 }
 
-bool NonNegativeInteger::lessThan(NonNegativeInteger* x) {
-	return fields[0] < x->toUnsignedLongLong();
-}
-
 bool NonNegativeInteger::lessThanOrEqualTo(NonNegativeInteger* x) {
 	return fields[0] <= x->toUnsignedLongLong();
 }
 
-bool NonNegativeInteger::equalTo(NonNegativeInteger* x) {
-	return fields[0] == x->toUnsignedLongLong();
-}
-
 bool NonNegativeInteger::equalTo(unsigned long long x) {
 	return fields[0] == x;
-}
-
-bool NonNegativeInteger::greaterThan(NonNegativeInteger* x) {
-	return fields[0] > x->toUnsignedLongLong();
-}
-
-bool NonNegativeInteger::greaterThanOrEqualTo(NonNegativeInteger* x) {
-	return fields[0] >= x->toUnsignedLongLong();
 }
 
 void NonNegativeInteger::_or(NonNegativeInteger* x) {

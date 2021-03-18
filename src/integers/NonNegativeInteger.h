@@ -23,14 +23,8 @@ public:
 	
 	bool isValid();
 	
-	bool lessThan(NonNegativeInteger* x);
 	bool lessThanOrEqualTo(NonNegativeInteger* x);
-	
-	bool equalTo(NonNegativeInteger* x);
 	bool equalTo(unsigned long long x);
-	
-	bool greaterThan(NonNegativeInteger* x);
-	bool greaterThanOrEqualTo(NonNegativeInteger* x);
 	
 	void _or(NonNegativeInteger* x);
 	void _and(NonNegativeInteger* x);
