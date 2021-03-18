@@ -1,7 +1,7 @@
 #include "fact.h"
 
 NonNegativeInteger* fact(NonNegativeInteger* x) {
-	if (x->equalTo(0))
+	if (x->equalTo(0ULL))
 		return new NonNegativeInteger(1);
 		
 	NonNegativeInteger* y = new NonNegativeInteger(1);
