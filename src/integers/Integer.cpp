@@ -46,6 +46,26 @@ bool Integer::isValid() {
 	return valid;
 }
 
+bool Integer::lessThan(Integer* x) {
+	return fields[0] < x->toLongLong();
+}
+
+bool Integer::lessThanOrEqualTo(Integer* x) {
+	return fields[0] <= x->toLongLong();
+}
+
+bool Integer::equalTo(Integer* x) {
+	return fields[0] == x->toLongLong();
+}
+
+bool Integer::greaterThanOrEqualTo(Integer* x) {
+	return fields[0] >= x->toLongLong();
+}
+
+bool Integer::greaterThan(Integer* x) {
+	return fields[0] > x->toLongLong();
+}
+
 void Integer::_not() {
 	fields[0] = ~fields[0];
 }

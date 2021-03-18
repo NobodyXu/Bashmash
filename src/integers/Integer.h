@@ -19,5 +19,11 @@ public:
 	long long toLongLong();
 	bool isValid();
 	
+	bool lessThan(Integer* x);
+	bool lessThanOrEqualTo(Integer* x);
+	bool equalTo(Integer* x);
+	bool greaterThan(Integer* x);
+	bool greaterThanOrEqualTo(Integer* x);
+	
 	void _not();
 };
