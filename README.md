@@ -10,7 +10,8 @@ As for now, Bashmash supports only 64-bit numbers.
 Support for infinitely long numbers will be implemented in future releases.  
 Currently the following mathematical operations are supported:
  - Factorial
- - Bitwise operations: NOT, OR, AND, and XOR
+ - Bitwise operations
+ - Comparison
  - Conversion between binary, octal, decimal and hexadecimal
 
 ## Latest release
@@ -76,6 +77,25 @@ not 5            # -6
 or  5 10         # 15
 and 5 10         # 0
 xor 5 10         # 15
+```
+
+### Comparison
+```bash
+cless  <a> <b>   # a < b
+cleq   <a> <b>   # a <= b
+ceq    <a> <b>   # a == b
+cgreq  <a> <b>   # a >= b
+cgreat <a> <b>   # a > b
+
+
+
+Examples:
+
+cless  5 10      # true
+cleq   5 10      # true
+ceq    5 10      # false
+cgreq  5 10      # false
+cgreat 5 10      # false
 ```
 
 ### Conversion between systems
