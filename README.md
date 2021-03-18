@@ -12,7 +12,7 @@ Currently the following mathematical operations are supported:
  - Factorial
  - Bitwise operations
  - Comparison
- - Conversion between binary, octal, decimal and hexadecimal
+ - Conversion between systems
 
 ## Latest release
 The latest test release is 0.3.  
