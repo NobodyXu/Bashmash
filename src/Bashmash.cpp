@@ -5,10 +5,10 @@
 
 #include "math/fact.h"
 
-#include "logic/not.h"
-#include "logic/or.h"
-#include "logic/and.h"
-#include "logic/xor.h"
+#include "bitwise/not.h"
+#include "bitwise/or.h"
+#include "bitwise/and.h"
+#include "bitwise/xor.h"
 
 #include "comparators/cless.h"
 #include "comparators/cleq.h"
@@ -60,13 +60,13 @@ extern "C" {
 		if (to_argv(wordList, 1, argv) == -1)
 			return EX_USAGE;
 			
-		NonNegativeInteger* x = new NonNegativeInteger(argv[0]);
+		Integer* x = new Integer(argv[0]);
 		if (!x->isValid()) {
 			builtin_usage();
 			return EX_USAGE;
 		}
 		
-		string y = _not(x);
+		string y = to_string(_not(x)->toLongLong());
 		cout << y;
 		
 		return EXECUTION_SUCCESS;
