@@ -10,6 +10,12 @@
 #include "logic/and.h"
 #include "logic/xor.h"
 
+#include "comparators/cless.h"
+#include "comparators/cleq.h"
+#include "comparators/ceq.h"
+#include "comparators/cgreat.h"
+#include "comparators/cgreq.h"
+
 #include "converters/bin2oct.h"
 #include "converters/bin2dec.h"
 #include "converters/bin2hex.h"
@@ -27,8 +33,8 @@
 #include "converters/hex2dec.h"
 
 #include <iostream>
-
 using namespace std;
+
 extern "C" {
 	#include <utilities.h>
 	
@@ -130,6 +136,121 @@ extern "C" {
 		}
 		
 		string y = to_string(_xor(a, b)->toUnsignedLongLong());
+		cout << y;
+	
+		return EXECUTION_SUCCESS;
+	}
+	
+	int cless_builtin(WORD_LIST* wordList) {
+		const char* argv[2];
+		if (to_argv(wordList, 2, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		if (!a->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		if (!b->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		string y = cless(a, b);
+		cout << y;
+	
+		return EXECUTION_SUCCESS;
+	}
+	
+	int cleq_builtin(WORD_LIST* wordList) {
+		const char* argv[2];
+		if (to_argv(wordList, 2, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		if (!a->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		if (!b->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		string y = cleq(a, b);
+		cout << y;
+	
+		return EXECUTION_SUCCESS;
+	}
+	
+	int ceq_builtin(WORD_LIST* wordList) {
+		const char* argv[2];
+		if (to_argv(wordList, 2, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		if (!a->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		if (!b->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		string y = ceq(a, b);
+		cout << y;
+	
+		return EXECUTION_SUCCESS;
+	}
+	
+	int cgreat_builtin(WORD_LIST* wordList) {
+		const char* argv[2];
+		if (to_argv(wordList, 2, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		if (!a->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		if (!b->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		string y = cgreat(a, b);
+		cout << y;
+	
+		return EXECUTION_SUCCESS;
+	}
+	
+	int cgreq_builtin(WORD_LIST* wordList) {
+		const char* argv[2];
+		if (to_argv(wordList, 2, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* a = new NonNegativeInteger(argv[0]);
+		if (!a->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		NonNegativeInteger* b = new NonNegativeInteger(argv[1]);
+		if (!b->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		string y = cgreq(a, b);
 		cout << y;
 	
 		return EXECUTION_SUCCESS;
@@ -346,7 +467,7 @@ extern "C" {
 		BUILTIN_ENABLED,
 		(char*[]) {
 			(char*)"Factorial",
-			(char*)"Calculates a factorial of a given non-negative integer.",
+			(char*)"Calculates a factorial.",
 			(char*)NULL
 		},
 		
@@ -361,7 +482,7 @@ extern "C" {
 		BUILTIN_ENABLED,
 		(char*[]) {
 			(char*)"NOT",
-			(char*)"Negates a given non-negative integer.",
+			(char*)"Performs a bitwise NOT operation.",
 			(char*)NULL
 		},
 		
@@ -376,7 +497,7 @@ extern "C" {
 		BUILTIN_ENABLED,
 		(char*[]) {
 			(char*)"OR",
-			(char*)"Performs an OR operation on given non-negative integers.",
+			(char*)"Performs a bitwise OR operation.",
 			(char*)NULL
 		},
 		
@@ -391,7 +512,7 @@ extern "C" {
 		BUILTIN_ENABLED,
 		(char*[]) {
 			(char*)"AND",
-			(char*)"Performs an AND operation on given non-negative integers.",
+			(char*)"Performs a bitwise AND operation.",
 			(char*)NULL
 		},
 		
@@ -406,11 +527,86 @@ extern "C" {
 		BUILTIN_ENABLED,
 		(char*[]) {
 			(char*)"XOR",
-			(char*)"Performs an XOR operation on given non-negative integers.",
+			(char*)"Performs a bitwise XOR operation.",
 			(char*)NULL
 		},
 		
 		"xor <non_negative_integer> <non_negative_integer>",
+		0
+	};
+	
+	PUBLIC struct builtin cless_struct = {
+		(char*)"cless",
+		cless_builtin,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"Less than",
+			(char*)"Checks if the first number is less than the second one.",
+			(char*)NULL
+		},
+		
+		"cless <non_negative_integer> <non_negative_integer>",
+		0
+	};
+	
+	PUBLIC struct builtin cleq_struct = {
+		(char*)"cleq",
+		cleq_builtin,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"Less than or equal to",
+			(char*)"Checks if the first number is less than or equal to the second one.",
+			(char*)NULL
+		},
+		
+		"cleq <non_negative_integer> <non_negative_integer>",
+		0
+	};
+	
+	PUBLIC struct builtin ceq_struct = {
+		(char*)"ceq",
+		ceq_builtin,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"Equal to",
+			(char*)"Checks if the first number is equal to the second one.",
+			(char*)NULL
+		},
+		
+		"ceq <non_negative_integer> <non_negative_integer>",
+		0
+	};
+	
+	PUBLIC struct builtin cgreat_struct = {
+		(char*)"cgreat",
+		cgreat_builtin,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"Greater than",
+			(char*)"Checks if the first number is greater than the second one.",
+			(char*)NULL
+		},
+		
+		"cgreat <non_negative_integer> <non_negative_integer>",
+		0
+	};
+	
+	PUBLIC struct builtin cgreq_struct = {
+		(char*)"cgreq",
+		cgreq_builtin,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"Greater than or equal to",
+			(char*)"Checks if the first number is greater than or equal to the second one.",
+			(char*)NULL
+		},
+		
+		"cgreq <non_negative_integer> <non_negative_integer>",
 		0
 	};
 	
@@ -614,6 +810,26 @@ extern "C" {
 		return 1;
 	}
 	
+	PUBLIC int cless_builtin_load(char* name) {
+		return 1;
+	}
+	
+	PUBLIC int cleq_builtin_load(char* name) {
+		return 1;
+	}
+	
+	PUBLIC int ceq_builtin_load(char* name) {
+		return 1;
+	}
+	
+	PUBLIC int cgreat_builtin_load(char* name) {
+		return 1;
+	}
+	
+	PUBLIC int cgreq_builtin_load(char* name) {
+		return 1;
+	}
+	
 	PUBLIC int bin2oct_builtin_load(char* name) {
 		return 1;
 	}
@@ -675,6 +891,21 @@ extern "C" {
 	}
 	
 	PUBLIC void xor_builtin_unload(char* name) {
+	}
+	
+	PUBLIC void cless_builtin_unload(char* name) {
+	}
+	
+	PUBLIC void cleq_builtin_unload(char* name) {
+	}
+	
+	PUBLIC void ceq_builtin_unload(char* name) {
+	}
+	
+	PUBLIC void cgreat_builtin_unload(char* name) {
+	}
+	
+	PUBLIC void cgreq_builtin_unload(char* name) {
 	}
 	
 	PUBLIC void bin2oct_builtin_unload(char* name) {
