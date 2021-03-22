@@ -4,6 +4,7 @@
 #include "integers/NonNegativeHexadecimalInteger.h"
 
 #include "math/fact.h"
+#include "math/bico.h"
 
 #include "bitwise/not.h"
 #include "bitwise/or.h"
@@ -51,6 +52,39 @@ extern "C" {
 		
 		string y = to_string(fact(n)->toUnsignedLongLong());
 		cout << y;
+		
+		return EXECUTION_SUCCESS;
+	}
+	
+	int bico_builtin(WORD_LIST* wordList) {
+		const char* argv[2];
+		if (to_argv(wordList, 2, argv) == -1)
+			return EX_USAGE;
+			
+		NonNegativeInteger* n = new NonNegativeInteger(argv[0]);
+		if (!n->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		NonNegativeInteger* k = new NonNegativeInteger(argv[1]);
+		if (!k->isValid()) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		if (!n->greaterThanOrEqualTo(k)) {
+			builtin_usage();
+			return EX_USAGE;
+		}
+		
+		try {
+			string y = to_string(bico(n, k)->toUnsignedLongLong());
+			cout << y;
+		} catch (exception& e) {
+			cerr << "Overflow" << endl;
+			return EXECUTION_FAILURE;
+		}
 		
 		return EXECUTION_SUCCESS;
 	}
@@ -475,6 +509,21 @@ extern "C" {
 		0
 	};
 	
+	PUBLIC struct builtin bico_struct = {
+		(char*)"bico",
+		bico_builtin,
+		
+		BUILTIN_ENABLED,
+		(char*[]) {
+			(char*)"Binomial coefficient",
+			(char*)"Calculates a binomial coefficient.",
+			(char*)NULL
+		},
+		
+		"bico <integer_greater_than_or_equal_to_k> <non_negative_integer>",
+		0
+	};
+	
 	PUBLIC struct builtin not_struct = {
 		(char*)"not",
 		not_builtin,
@@ -794,6 +843,10 @@ extern "C" {
 		return 1;
 	}
 	
+	PUBLIC int bico_builtin_load(char* name) {
+		return 1;
+	}
+	
 	PUBLIC int not_builtin_load(char* name) {
 		return 1;
 	}
@@ -879,6 +932,9 @@ extern "C" {
 	}
 	
 	PUBLIC void fact_builtin_unload(char* name) {
+	}
+	
+	PUBLIC void bico_builtin_unload(char* name) {
 	}
 	
 	PUBLIC void not_builtin_unload(char* name) {
