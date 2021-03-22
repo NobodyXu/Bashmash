@@ -8,7 +8,7 @@ if [ $EUID != 0 ]; then
 fi
 
 name="Bashmash"
-version="0.4"
+version="0.5"
 
 if ! command -v g++ &> /dev/null; then
 	echo "You must install G++ to install $name $version."
