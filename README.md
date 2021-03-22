@@ -15,10 +15,9 @@ Currently the following mathematical operations are supported:
  - Conversion between systems
 
 ## Latest release
-The latest test release is 0.3.  
+The latest test release is 0.4.  
 It introduces the following new features and changes:
- - Commands are now loaded as Bash builtins (see [Importing commands](#importing-commands))
- - Bitwise operations: NOT, OR, AND, and XOR
+ - Comparison
 
 ## Powered by
 Bashmash is powered by:
