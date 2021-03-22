@@ -10,6 +10,7 @@ As for now, Bashmash supports only 64-bit numbers.
 Support for infinitely long numbers will be implemented in future releases.  
 Currently the following mathematical operations are supported:
  - Factorial
+ - Binomial coefficient
  - Bitwise operations
  - Comparison
  - Conversion between systems
@@ -60,6 +61,17 @@ fact <n>         # n!
 Example:
 
 fact 5           # 120
+```
+
+### Binomial coefficient
+```bash
+bico <n> <k>     # (n k)
+
+
+
+Example:
+
+bico 10 5        # 252
 ```
 
 ### Bitwise operations
