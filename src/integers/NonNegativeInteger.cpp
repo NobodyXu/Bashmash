@@ -66,6 +66,10 @@ bool NonNegativeInteger::equalTo(unsigned long long x) {
 	return fields[0] == x;
 }
 
+bool NonNegativeInteger::greaterThanOrEqualTo(NonNegativeInteger* x) {
+	return fields[0] >= x->toUnsignedLongLong();
+}
+
 void NonNegativeInteger::_or(NonNegativeInteger* x) {
 	fields[0] |= x->toUnsignedLongLong();
 }
@@ -82,6 +86,14 @@ void NonNegativeInteger::increment() {
 	fields[0]++;
 }
 
+void NonNegativeInteger::subtract(NonNegativeInteger* x) {
+	fields[0] -= x->toUnsignedLongLong();
+}
+
 void NonNegativeInteger::multiply(NonNegativeInteger* x) {
 	fields[0] *= x->toUnsignedLongLong();
+}
+
+void NonNegativeInteger::divide(NonNegativeInteger* x) {
+	fields[0] /= x->toUnsignedLongLong();
 }
