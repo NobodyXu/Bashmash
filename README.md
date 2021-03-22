@@ -17,6 +17,7 @@ Currently the following mathematical operations are supported:
 ## Latest release
 The latest test release is 0.4.  
 It introduces the following new features and changes:
+ - Support for negative integers
  - Comparison
 
 ## Powered by
