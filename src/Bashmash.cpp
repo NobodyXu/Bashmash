@@ -43,13 +43,13 @@ extern "C" {
 		if (to_argv(wordList, 1, argv) == -1)
 			return EX_USAGE;
 			
-		NonNegativeInteger* x = new NonNegativeInteger(argv[0]);
-		if (!x->isValid()) {
+		NonNegativeInteger* n = new NonNegativeInteger(argv[0]);
+		if (!n->isValid()) {
 			builtin_usage();
 			return EX_USAGE;
 		}
 		
-		string y = to_string(fact(x)->toUnsignedLongLong());
+		string y = to_string(fact(n)->toUnsignedLongLong());
 		cout << y;
 		
 		return EXECUTION_SUCCESS;
