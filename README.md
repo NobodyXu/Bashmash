@@ -53,7 +53,7 @@ enable -f /bin/bashmash dec2bin
 ## Usage
 ### Factorial
 ```bash
-fact <x>         # x!
+fact <n>         # n!
 
 
 
