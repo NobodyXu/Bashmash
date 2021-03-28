@@ -36,9 +36,8 @@ Bashmash is powered by:
 ### Steps
 1. Clone this repository including the submodules: `git clone --recurse-submodules https://github.com/HubertPastyrzak/Bashmash`.
 2. Go to the downloaded folder: `cd Bashmash`.
-3. Assign execution permissions to the installer: `chmod +x install.sh`.
-4. Run the installer: `sudo ./install.sh`.
-5. Bashmash is now ready to use. :)
+3. Run the installer: `sudo ./install.sh`.
+4. Bashmash is now ready to use. :)
 
 ## Importing commands
 ```bash
