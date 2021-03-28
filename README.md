@@ -1,5 +1,5 @@
 # Bashmash
-Bash math utilities
+Math utilities for Bash
 
 ## What is Bashmash?
 Bashmash is a set of math utilities for the Bash language.  
@@ -8,7 +8,8 @@ It simplifies common mathematical operations, such as factorials.
 ## Features
 As for now, Bashmash supports only 64-bit numbers.  
 Support for infinitely long numbers will be implemented in future releases.  
-Currently the following mathematical operations are supported:
+
+Currently Bashmash offers the following mathematical operations:
  - Factorial
  - Binomial coefficient
  - Bitwise operations
@@ -16,10 +17,9 @@ Currently the following mathematical operations are supported:
  - Conversion between systems
 
 ## Latest release
-The latest test release is 0.4.  
+The latest test release is 0.5.  
 It introduces the following new features and changes:
- - Support for negative integers
- - Comparison
+ - Binomial coefficient
 
 ## Powered by
 Bashmash is powered by:
