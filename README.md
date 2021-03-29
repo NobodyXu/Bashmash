@@ -39,13 +39,13 @@ Bashmash is powered by:
 
 ## Importing commands
 ```bash
-enable -f /bin/bashmash <command>
+enable -f /usr/local/lib/bashmash <command>
 
 
 
 Example:
 
-enable -f /bin/bashmash dec2bin
+enable -f /usr/local/lib/bashmash dec2bin
 ```
 
 ## Usage

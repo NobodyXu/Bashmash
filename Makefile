@@ -24,7 +24,7 @@ bash-loadables/bash/Makefile: bash-loadables/bash/configure
 	cd bash-loadables/bash && ./configure
 
 install: bashmath
-	cp bashmath /bin/bashmath
+	cp bashmath /usr/local/lib/bashmath
 
 clean:
 	$(MAKE) -C bash-loadables/bash clean
