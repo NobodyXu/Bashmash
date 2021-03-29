@@ -2,10 +2,10 @@ CXX := $(shell (clang++ -v >/dev/null 2>&1 && echo clang++) || (g++ -v >/dev/nul
 
 INCS := -I"bash-loadables" -I"bash-loadables/bash/include"
 
-CFLAGS := -flto -Oz -s -Wno-parentheses -Wno-format-security -fvisibility=hidden 
+CFLAGS := -flto -Oz -Wno-parentheses -Wno-format-security -fvisibility=hidden 
 CFLAGS += -fno-asynchronous-unwind-tables -fno-unwind-tables  -fmerge-all-constants
 
-LDFLAGS := -shared -Wl,-soname,$@ -Wl,-icf=all,--gc-sections -flto -Wl,--plugin-opt=O3 -fuse-ld=lld
+LDFLAGS := -s -shared -Wl,-soname,$@ -Wl,-icf=all,--gc-sections -flto -Wl,--plugin-opt=O3 -fuse-ld=lld
 
 SRCS := $(shell find src/ -name '*.cpp')
 OBJS := $(SRCS:.cpp=.o)
