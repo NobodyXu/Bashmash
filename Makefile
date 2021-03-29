@@ -30,4 +30,4 @@ clean:
 	$(MAKE) -C bash-loadables/bash clean
 	rm -rf $(OBJS) bashmath bash-loadables/bash/Makefile
 
-.PHONY: clean
+.PHONY: install clean
